@@ -1,0 +1,11 @@
+<h1>Your bookings:</h1>
+
+<%= form_with scope: :bookings, url: bookings_create_path do | form | %>
+  <% @bookings.each_with_index do |booking, i | %>
+    <%= form.fields_for :booking do | booking_form | %>
+      <%= render 'form', form: booking_form, flight: @flight %>
+    <% end %>
+  <% end %>
+  <%= form.submit "Create bookings" %>
+<% end %>
+

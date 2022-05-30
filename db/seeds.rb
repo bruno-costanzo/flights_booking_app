@@ -11,17 +11,27 @@
 require 'factory_bot_rails'
 require 'faker'
 
-Airport.destroy_all
-Flight.destroy_all
+# Airport.destroy_all
+# Flight.destroy_all
 
-200.times do
-  airport = FactoryBot.build(:random_airport)
-  airport.save if airport.valid?
-end
+# 200.times do
+#   airport = FactoryBot.build(:random_airport)
+#   airport.save if airport.valid?
+# end
 
-2500.times do
-  flight = FactoryBot.build(:random_flight)
-  flight.departure_airport = Airport.all.sample
-  flight.arrival_airport = Airport.where.not(id: flight.departure_airport.id).sample
-  flight.save
+# 10_000.times do
+#   flight = FactoryBot.build(:random_flight)
+#   flight.departure_airport = Airport.all.sample
+#   flight.arrival_airport = Airport.where.not(id: flight.departure_airport.id).sample
+#   flight.save
+# end
+
+# 1500.times do
+#   passenger = FactoryBot.build(:passenger)
+#   passenger.save if passenger.valid?
+# end
+
+5000.times do
+  booking = FactoryBot.build(:booking)
+  booking.save if booking.valid?
 end

@@ -19,4 +19,12 @@ FactoryBot.define do
   factory :random_airport, class: Airport do
     code { Faker::Name.initials(3) }
   end
+
+  factory :specific_airport_a, class: Airport do
+    code { 'BUE' }
+  end
+
+  factory :specific_airport_b, class: Airport do
+    code { 'MIA' }
+  end
 end

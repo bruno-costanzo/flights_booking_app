@@ -1,0 +1,7 @@
+<%= form_with scope: :booking, url: bookings_new_path, method: :get  do |form| %>
+  <%= form.hidden_field :passengers, value: passengers %>
+  <% flights.each do |flight| %> 
+    <%= render 'flight', flight: flight, form: form %>
+  <% end %>
+  <%= form.submit "Reserve" %>
+<% end %>

@@ -1,0 +1,12 @@
+<div>
+  <p>
+    <%= flight.departure_airport.code %> to <%= flight.arrival_airport.code %>
+  </p>
+  <p>
+    <%= flight.departure_date.strftime("%d/%m/%Y ") %>
+    <%= flight.departure_date.time.strftime("at %I:%M%p") %>
+  </p>
+  <p>
+    Duration: <%= flight.duration / 3600 %> hs <%= (flight.duration % 3600) / 60 %> mins
+  </p>
+</div>

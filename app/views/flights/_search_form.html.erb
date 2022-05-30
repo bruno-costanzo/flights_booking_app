@@ -1,0 +1,15 @@
+<%= form_with scope: :search, url: flights_index_path, method: :get do |f| %>
+  <%= f.label :from %>
+  <%= f.select(:from, options_from_collection_for_select(airports, :id, :code, params[:search][:from]), required: true) %>
+  
+  <%= f.label :to %>
+  <%= f.select(:to, options_from_collection_for_select(airports, :id, :code, params[:search][:to]), required: true) %>
+
+  <%= f.label :passengers %>
+  <%= f.select(:passengers, options_for_select(1..4, params[:search][:passengers]), required: true) %>
+
+  <%= f.label :date %>
+  <%= f.date_field(:date, value: params[:search][:date]) %>
+  
+  <%= f.submit "Search" %>
+<% end %>

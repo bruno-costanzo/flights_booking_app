@@ -8,8 +8,8 @@ class PassengerTest < ActiveSupport::TestCase
     assert_not passenger.save, 'Saved the passenger without a name'
   end
 
-  test 'should save passenger with name' do
-    passenger = Passenger.new(name: 'Bruno Costanzo')
+  test 'should save passenger with name and email' do
+    passenger = Passenger.new(name: 'Bruno Costanzo', email: 'bruno@mail.com')
     assert passenger.save, 'Did not save the passenger with a name'
   end
 end

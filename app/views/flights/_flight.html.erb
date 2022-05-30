@@ -1,0 +1,7 @@
+<div>
+  <%= render 'info', flight: flight %>
+  <p>
+    <%= form.radio_button :flight, flight.id %>
+    <%= form.label :flight, "Pick" %>
+  </p>
+</div>

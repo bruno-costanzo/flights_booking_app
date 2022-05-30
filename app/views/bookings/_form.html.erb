@@ -1,0 +1,7 @@
+<%= form.fields_for :passenger do | passenger_form | %>
+  <%= render 'passengers/form', form: passenger_form %>
+<% end %>
+<h3> Flight </h3>
+<% form.hidden_field :flight, value: flight %>
+<%= render 'flights/info', flight: flight %>
+

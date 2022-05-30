@@ -12,12 +12,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 20_220_527_191_424) do
+ActiveRecord::Schema[7.0].define(version: 20_220_530_001_352) do
   # These are extensions that must be enabled in order to support this database
   enable_extension 'plpgsql'
 
   create_table 'airports', force: :cascade do |t|
     t.string 'code'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+  end
+
+  create_table 'bookings', force: :cascade do |t|
+    t.integer 'passenger_id'
+    t.integer 'flight_id'
     t.datetime 'created_at', null: false
     t.datetime 'updated_at', null: false
   end
@@ -35,5 +42,6 @@ ActiveRecord::Schema[7.0].define(version: 20_220_527_191_424) do
     t.datetime 'created_at', null: false
     t.datetime 'updated_at', null: false
     t.string 'name'
+    t.string 'email'
   end
 end
