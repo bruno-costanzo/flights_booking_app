@@ -1,0 +1,8 @@
+<%= content_tag :div, class: '' do %>
+  <%= content_tag :h3, "Passenger", class: "text-warning" %>
+  <%= render 'passengers/info', passenger: booking.passenger %>
+<% end %>
+<%= content_tag :div, class: 'border border-2 border-danger rounded-3 text-center' do %>
+  <%= content_tag :h3, "Flight", class: "text-warning" %>
+  <%= render 'flights/info', flight: booking.flight %>
+<% end %>

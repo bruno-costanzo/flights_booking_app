@@ -1,12 +1,8 @@
-<div>
+<%= content_tag :div do %>
+  <%= content_tag :p, "#{flight.departure_airport.code} to #{flight.arrival_airport.code}", class: "badge bg-warning text-primary fs-6" %>
+  <%= content_tag :p, "#{flight.departure_date.strftime("%d/%m/%Y")} #{flight.departure_date.time.strftime("at %I:%M%p")}", class: "badge bg-danger text-primary fs-6" %>
   <p>
-    <%= flight.departure_airport.code %> to <%= flight.arrival_airport.code %>
+    <%= image_tag 'icons/clock-solid.svg', style: "width: 16px; filter: invert(1);"%>
+    <%= flight.duration / 3600 %> h <%= (flight.duration % 3600) / 60 %> m
   </p>
-  <p>
-    <%= flight.departure_date.strftime("%d/%m/%Y ") %>
-    <%= flight.departure_date.time.strftime("at %I:%M%p") %>
-  </p>
-  <p>
-    Duration: <%= flight.duration / 3600 %> hs <%= (flight.duration % 3600) / 60 %> mins
-  </p>
-</div>
+<% end %>

@@ -1,7 +1,11 @@
-<%= form.fields_for :passenger do | passenger_form | %>
-  <%= render 'passengers/form', form: passenger_form %>
+<%= content_tag :div, class: "bg-primary m-2 p-3 rounded-3" do %>
+  <%= form.fields_for :passenger do | passenger_form | %>
+    <%= render 'passengers/form', form: passenger_form %>
+  <% end %>
+  <%= content_tag :div, class: "border border-2 border-warning rounded-3 p-2" do %>
+    <h3> Flight </h3>
+    <%= form.hidden_field :flight, value: flight.id %>
+    <%= render 'flights/info', flight: flight %>
+  <% end %>
 <% end %>
-<h3> Flight </h3>
-<% form.hidden_field :flight, value: flight %>
-<%= render 'flights/info', flight: flight %>
 

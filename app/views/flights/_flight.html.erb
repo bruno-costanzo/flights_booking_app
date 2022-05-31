@@ -1,7 +1,11 @@
-<div>
-  <%= render 'info', flight: flight %>
-  <p>
-    <%= form.radio_button :flight, flight.id %>
-    <%= form.label :flight, "Pick" %>
-  </p>
-</div>
+<%= content_tag :div, class: 'col-md-6 text-center' do %>
+  <%= content_tag :div, class: 'row p-2' do %>
+    <%= content_tag :div, class: 'col-md-12 border border-2 border-warning rounded-3 p-2' do %>
+      <%= render 'info', flight: flight %>
+      <%= content_tag :span, class: "form-check text-primary text-center bg-light py-1 rounded-3" do %>
+        <%= form.radio_button :flight, flight.id, class: "form-check-input text-center float-none" %>
+        <%= form.label "flight_#{flight.id}", "Pick", class: "form-check-label text-primary fw-bolder" %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>

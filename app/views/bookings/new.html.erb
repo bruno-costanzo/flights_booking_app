@@ -1,11 +1,15 @@
-<h1>Your bookings:</h1>
+<%= content_tag :h2, "Your bookings:", class: "fs-1" %>
 
-<%= form_with scope: :bookings, url: bookings_create_path do | form | %>
+<%= form_with scope: :bookings, url: bookings_create_path, class: "row" do | form | %>
   <% @bookings.each_with_index do |booking, i | %>
-    <%= form.fields_for :booking do | booking_form | %>
-      <%= render 'form', form: booking_form, flight: @flight %>
+    <%= content_tag :div, class: "col-md-6 col-lg-4 text-primary text-center" do %>
+      <%= form.fields_for "booking_#{i}" do | booking_form | %>
+        <%= render 'form', form: booking_form, flight: @flight %>
+      <% end %>
     <% end %>
   <% end %>
-  <%= form.submit "Create bookings" %>
+  <%= content_tag :div, class: "col-md-12 text-center" do %>
+    <%= form.submit "Create bookings", class: "btn btn-warning text-primary fs-3 my-2 w-auto fw-bold" %>
+  <%end%>
 <% end %>
 

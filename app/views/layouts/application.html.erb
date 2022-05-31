@@ -10,7 +10,16 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="bg-secondary">
+    <%= content_tag :div, class: "container-fluid vh-100 d-flex align-items-center flex-wrap" do %>
+      <% flash.each do |key, value| %>
+        <%= content_tag :div, value, id: "flash_#{key}", class: 'row w-100' do %>
+          <%= content_tag :p, value, class: "col-12 mx-3" %>
+        <% end %>
+      <% end %>
+      <%= content_tag :div, class: "container d-flex flex-column justify-content-center" do %>
+        <%= yield %>
+      <% end %>
+    <% end %>
   </body>
 </html>

@@ -1,11 +1,17 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  # Bookings routes
   get 'bookings/new'
+  get 'bookings/checkout'
   post 'bookings/create'
+
+  # Flights routes
   get 'flights/index'
+
+  # Passengers routes
   post 'passengers/create'
-  # Defines the root path route ("/")
+
+  # Root route
   root 'flights#index'
 end

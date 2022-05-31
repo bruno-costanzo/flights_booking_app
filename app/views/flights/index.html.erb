@@ -1,8 +1,18 @@
-<h1>Flight Booking App!</h1>
-<%= render 'search_form', airports: @airports %>
 
-<% if @flights.any? %>
-  <%= render 'flight_selector', flights: @flights, passengers: params[:search][:passengers] %>
-<% else %>
-  No flights found.
+<%= content_tag :div, class: "row" do %>
+  <%= content_tag :div, class: "col-md-12 text-center" do %>
+    <%= content_tag :h1, "Flight Booker!" %>
+  <% end %>
+<% end %>
+<%= content_tag :div, class: "row bg-primary rounded-3 p-3 my-2 border border-2 border-warning" do %>
+  <%= content_tag :div, class: "col-md-4" do %>
+    <%= render 'search_form', airports: @airports %>
+  <% end %>
+  <%= content_tag :div, class: "col-md-8" do %>
+    <% if @flights.any? %>
+      <%= render 'flight_selector', flights: @flights, passengers: params[:search][:passengers] %>
+    <% else %>
+      No flights found yet.
+    <% end %>
+  <% end %>
 <% end %>

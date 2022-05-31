@@ -1,7 +1,9 @@
-<%= form_with scope: :booking, url: bookings_new_path, method: :get  do |form| %>
+<%= form_with scope: :booking, url: bookings_new_path, method: :get, class: "row d-flex flex-wrap h-100"  do |form| %>
   <%= form.hidden_field :passengers, value: passengers %>
   <% flights.each do |flight| %> 
     <%= render 'flight', flight: flight, form: form %>
   <% end %>
-  <%= form.submit "Reserve" %>
+  <%= content_tag :div, class: "col-md-12 d-flex justify-content-end align-self-end" do %>
+    <%= form.submit "Reserve", class: "btn btn-warning fs-5 fw-bold text-primary w-auto" %>
+  <% end %>
 <% end %>

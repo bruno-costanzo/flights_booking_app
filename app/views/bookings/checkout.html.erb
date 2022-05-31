@@ -1,0 +1,13 @@
+<%= content_tag :div, class: "row" do %>
+  <% @bookings.each_with_index do |booking, i | %>
+    <%= content_tag :div, class: "col-md-6" do%>
+      <%= content_tag :div, class: "row m-3 p-3 bg-primary border border-2 border-warning rounded-3" do %>
+        <%= content_tag :h2, "Booking ##{i+1}", class: "badge fs-2 bg-warning text-primary" %>
+        <%= render 'info', booking: booking %>
+      <%end%>
+    <% end %>
+  <% end %>
+<% end %>
+<%= content_tag :div, class: "row justify-content-center my-3" do %>
+  <%= link_to "BACK HOME", flights_index_path, class: "btn btn-warning fs-3 w-auto text-primary fw-bold" %>
+<% end %>

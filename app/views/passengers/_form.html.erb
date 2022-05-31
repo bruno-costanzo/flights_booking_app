@@ -1,11 +1,12 @@
 <h3> Passenger </h3>
 <div>
-  <%= form.label :name %>
-  <%= form.text_field :name %>
+  <%= form.label :name, class: 'form-label' %>
+  <%= form.text_field :name, class: 'form-control bg-light text-primary' %>
 </div>
 <br>
 <div>
-  <%= form.label :email %>
-  <%= form.email_field :email %>
+  <%= form.label :email, class: 'form-label' %>
+  <%= form.email_field :email, class: 'form-control bg-light text-primary' %>
+  <div id="emailHelp" class="form-text">We will you your account if your email is registered</div>
 </div>
 <br>

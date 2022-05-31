@@ -1,15 +1,21 @@
-<%= form_with scope: :search, url: flights_index_path, method: :get do |f| %>
-  <%= f.label :from %>
-  <%= f.select(:from, options_from_collection_for_select(airports, :id, :code, params[:search][:from]), required: true) %>
-  
-  <%= f.label :to %>
-  <%= f.select(:to, options_from_collection_for_select(airports, :id, :code, params[:search][:to]), required: true) %>
-
-  <%= f.label :passengers %>
-  <%= f.select(:passengers, options_for_select(1..4, params[:search][:passengers]), required: true) %>
-
-  <%= f.label :date %>
-  <%= f.date_field(:date, value: params[:search][:date]) %>
-  
-  <%= f.submit "Search" %>
+<%= form_with scope: :search, url: flights_index_path, method: :get, class: 'row' do |f| %>
+  <%= content_tag :div, class: "col-12 mb-1" do %>
+    <%= f.label :from, class: 'form-label' %>
+    <%= f.select(:from, options_from_collection_for_select(airports, :id, :code, params[:search][:from]), {}, { required: true, class: "form-select bg-light" }) %>
+  <% end %>
+  <%= content_tag :div, class: "col-12 mb-1" do %>
+    <%= f.label :to, class: 'form-label' %>
+    <%= f.select(:to, options_from_collection_for_select(airports, :id, :code, params[:search][:to]), {}, { required: true, class: "form-select bg-light" } ) %>
+  <% end %>
+  <%= content_tag :div, class: "col-12 mb-1" do %>
+    <%= f.label :passengers, class: 'form-label' %>
+    <%= f.select(:passengers, options_for_select(1..4, params[:search][:passengers]), {}, { required: true, class: "form-select bg-light" }) %>
+  <% end %>
+  <%= content_tag :div, class: "col-12 mb-1" do %>
+    <%= f.label :date, class: 'form-label' %>
+    <%= f.date_field(:date, value: params[:search][:date], class: "form-control bg-light text-primary") %>
+  <% end %>
+  <%= content_tag :div, class: "col-12 mt-3 fs-4 text-end" do %>
+    <%= f.submit "Search", class: "btn btn-warning text-primary" %>
+  <% end %>
 <% end %>
