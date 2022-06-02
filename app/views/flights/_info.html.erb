@@ -1,5 +1,5 @@
 <%= content_tag :div do %>
-  <%= content_tag :p, "#{flight.departure_airport.code} to #{flight.arrival_airport.code}", class: "badge bg-warning text-primary fs-6" %>
+  <%= content_tag :p, "#{flight.departure_airport.name} to #{flight.arrival_airport.name}", class: "badge bg-warning text-primary fs-6" %>
   <%= content_tag :p, "#{flight.departure_date.strftime("%d/%m/%Y")} #{flight.departure_date.time.strftime("at %I:%M%p")}", class: "badge bg-danger text-primary fs-6" %>
   <p>
     <%= image_tag 'icons/clock-solid.svg', style: "width: 16px; filter: invert(1);"%>
